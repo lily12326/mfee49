@@ -61,8 +61,13 @@
 
 
   class Bike{
-    private $speed = 0; //屬性 -> 需要初始化
+    protected $speed = 0; //屬性 -> 需要初始化  //設置private->只在該類別有作用 vs. protected（存取修飾字）-> 繼承的class也可以使用 vs. var(aka. public)
     
+    function __construct(){
+      $this->speed = 0;
+      //將物件初始化的方法 //只有new時會用到
+    }
+
     function upSpeed(){
           $this -> speed = $this -> speed <1 ? 1 : $this -> speed * 1.2;
     } //圍繞屬性設計方法 // -> 相當於 js的.
@@ -80,4 +85,14 @@
     }
  
  }
+
+
+ class scooter extends Bike{
+    function upSpeed(){
+      $this -> speed = $this -> speed <1 ? 1 : $this -> speed * 1.7;
+    }
+ }//繼承class Bike除了speed以外（因為private）的屬性方法 -> private 改成 protected就可以使用了
+
+
+
 ?>
