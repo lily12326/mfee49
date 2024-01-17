@@ -1,5 +1,5 @@
 <?php
-    $fp = fopen('dir1/file3.txt', 'r') or die('server busy');  //原本沒有file3
+    $fp = @fopen('dir1/file3.txt', 'r') or die('server busy');  //原本沒有file3
 
     fclose($fp);
     echo 'objk';
