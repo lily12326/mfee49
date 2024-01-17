@@ -88,8 +88,23 @@
 
 
  class scooter extends Bike{
+    private $gear;
+
+    function __construct(){
+      parent::__construct(); //呼叫父類別的建構式
+      $this->gear = 0;
+    }
+
     function upSpeed(){
-      $this -> speed = $this -> speed <1 ? 1 : $this -> speed * 1.7;
+      if ($this-> gear > 0){
+        $this -> speed = $this -> speed <1 ? 1 : $this -> speed * 1.7 $this->gear;
+      }
+    }
+
+    function changGear($gear = 0){
+      if ($gear >= 0 && $gear <= 4){
+        $this->gear = $gear;
+      }
     }
  }//繼承class Bike除了speed以外（因為private）的屬性方法 -> private 改成 protected就可以使用了
 

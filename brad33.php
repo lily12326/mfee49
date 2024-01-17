@@ -8,7 +8,10 @@
     echo '<hr/>';
 
     $myScooter = new Scooter();
-    $myScooter->upSpeed();$myScooter->upSpeed();$myScooter->upSpeed();$myScooter->upSpeed();$myScooter->upSpeed();
+    $myScooter->changeGear(1);
+    $myScooter->upSpeed();$myScooter->upSpeed();$myScooter->upSpeed();
+    $myScooter->changeGear(4);
+    $myScooter->upSpeed();$myScooter->upSpeed();
     echo $myScooter->getSpeed();
     
 
