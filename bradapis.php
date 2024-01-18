@@ -69,7 +69,7 @@
     }
 
     function upSpeed(){
-          $this -> speed = $this -> speed <1 ? 1 : $this -> speed * 1.2;
+          $this-> speed = $this-> speed <1 ? 1 : $this-> speed * 1.2;
     } //圍繞屬性設計方法 // -> 相當於 js的.
     //(condition) ? expression_if_true : expression_if_false;
     //如果 $this->speed 小於 1，則將 $this->speed 的值設置為 1。
@@ -77,7 +77,7 @@
  
  
     function downSpeed(){
-       $this -> speed = $this -> speed <1 ? 0 : $this -> speed * 0.7;
+       $this-> speed = $this-> speed <1 ? 0 : $this-> speed * 0.7;
     }
     
     function getSpeed(){
@@ -97,11 +97,11 @@
 
     function upSpeed(){
       if ($this-> gear > 0){
-        $this -> speed = $this -> speed <1 ? 1 : $this -> speed * 1.7 $this->gear;
+        $this->speed = $this->speed < 1 ? 1 : $this->speed * 1.7 * $this->gear;
       }
     }
 
-    function changGear($gear = 0){
+    function changeGear($gear = 0){
       if ($gear >= 0 && $gear <= 4){
         $this->gear = $gear;
       }
