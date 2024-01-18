@@ -31,7 +31,7 @@ $stmt = $mysqli->prepare($sql);
 foreach ($data as $row) {   //$ROW是物件
    $stmt->bind_param('sssssssdd',$row->ID,$row->Name,
         $row->Address,$row->FoodFeature,$row->City,$row->Town,$row->PicURL,
-        $row->Latitude,$row->Longitude);
+        $row->Latitude,$row->Longitude); 
         $stmt->execute();
    //echo "{$row->ID} : {$row->Name} : {$row->Tel}<br>";
 }
