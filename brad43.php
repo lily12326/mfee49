@@ -1,9 +1,13 @@
 <?php
+    include 'bradapis.php';
+    session_start();
+    
     if (isset($_REQUEST['account'])) { 
        $account = $_REQUEST['account']; 
        $passwd = $_REQUEST['password'];
     
-       $sql = ' select id, account, passwd, name from member where account = ?';
+       $sql = 'SELECT id, account, passwd, name, icon, icontype FROM member ' . 
+                'WHERE account = ?';
        //因為prepare要搭配欄位，不要用*
        //where account= ? =>避免隱碼攻擊
        $mysqli = new mysqli('localhost', 'root', '','ispan', 3306);
@@ -13,9 +17,11 @@
        $stmt->execute();
        $stmt-> store_result(); //儲存後才能綁定
        if ($stmt->num_rows > 0) { //如果有撈到資料
-            $stmt->bind_result($id, $account, $hashpasswd, $name); //要換成hashpasswd!(才能比對)
+            $stmt->bind_result($id, $account, $hashpasswd, $name, $icon, $icontype); //要換成hashpasswd!(才能比對)
             $stmt->fetch(); //合理情況下，只會撈到一比（與primary key有關）
             if (password_verify($passwd, $hashpasswd)) {
+                $member = new Member($id, $account, $hashpasswd, $name,$icon, $icontype);
+                $_SESSION['member'] = $member;
                 header('location:main.php');
             } else {
                 echo "Login Failed";

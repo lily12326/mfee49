@@ -108,6 +108,45 @@
     }
  }//繼承class Bike除了speed以外（因為private）的屬性方法 -> private 改成 protected就可以使用了
 
+class Student{
+  private $name, $ch, $eng, $math;
+  function __construct($name, $ch, $eng, $math){
+    $this->name = $name;
+    $this->ch = $ch;
+    $this->eng = $eng;
+    $this->math = $math;
+  } 
+  function sum(){return $this->ch + $this->eng + $this->math;}
+  function avg(){return $this->sum()/3;}
+  function getName(){return $this->name;}
+  function setCh($ch){$this->ch = $ch;}
+}
 
+class Member {
+  private $id, $account, $passwd, $name, $icon, $icontype;
+
+  function __construct($id, $account, $passwd, $name, $icon, $icontype){
+      $this->id = $id;
+      $this->account = $account;
+      $this->passwd = $passwd;
+      $this->name = $name;
+      $this->icon = $icon;
+      $this->icontype = $icontype;
+  }
+
+  function getId(){return $this->id;}
+  function getAccount(){return $this->account;}
+  function getPasswd(){return $this->passwd;}
+  function getName(){return $this->name;}
+  function getIcon(){return base64_encode($this->icon);}
+  function getIconType(){return $this->icontype;}
+
+  function setAccount($account){$this->account = $account;}
+  function setPasswd($passwd){$this->passwd = $passwd;}
+  function setName($name){$this->name = $name;}
+
+
+
+}
 
 ?>
