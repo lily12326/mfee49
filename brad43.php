@@ -9,7 +9,7 @@
        $mysqli = new mysqli('localhost', 'root', '','ispan', 3306);
        $mysqli ->  set_charset('utf8');
        $stmt = $mysqli -> prepare($sql);
-       $stmt->bind_param('s', $account);
+       $stmt->bind_param('s', $account); //'s' 代表參數的型別是字串，而 $account 則是要傳入的實際值。
        $stmt->execute();
        $stmt-> store_result(); //儲存後才能綁定
        if ($stmt->num_rows > 0) { //如果有撈到資料
